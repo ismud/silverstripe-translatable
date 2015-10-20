@@ -1085,12 +1085,11 @@ class Translatable extends DataExtension implements PermissionProvider {
 			if($canAddLocale) {
 				// Only add create button if new languages are available
 				$tab->push(
-					$createButton = InlineFormAction::create(
+					$createButton = FormAction::create(
 						'createtranslation',
 						_t('Translatable.CREATEBUTTON', 'Create')
 					)->addExtraClass('createTranslationButton')
 				);
-				$createButton->includeDefaultJS(false); // not fluent API...
 			} else {
 				$tab->removeByName('NewTransLang');
 				$tab->push(new LiteralField(
